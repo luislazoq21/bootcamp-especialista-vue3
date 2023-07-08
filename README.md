@@ -6,13 +6,13 @@ This template should help get you started developing with Vue 3 in Vite.
 
 **Requerimientos**
 
-    **Nota: no necesitamos que la data persista ni necesitamos tener una conexión a una API O BD**
+|   **Nota: no necesitamos que la data persista ni necesitamos tener una conexión a una API O BD**
 
-* [] Necesitamos crear una lista de empresas en un arreglo (nombre, cargo)
-* [] Listar las empresas y mostrar su nombre y cargo
-* [] Crear un formulario que permita crear una nueva empresa
-* [] Crear un formulario que permita actualizar una empresa
-* [] Crear un formulario que permita eliminar una empresa
+* [ ] Necesitamos crear una lista de empresas en un arreglo (nombre, cargo)
+* [ ] Listar las empresas y mostrar su nombre y cargo
+* [ ] Crear un formulario que permita crear una nueva empresa
+* [ ] Crear un formulario que permita actualizar una empresa
+* [ ] Crear un formulario que permita eliminar una empresa
 
 ## Recommended IDE Setup
 
