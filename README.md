@@ -10,9 +10,9 @@ This template should help get you started developing with Vue 3 in Vite.
 
 * [x] Necesitamos crear una lista de empresas en un arreglo (nombre, cargo)
 * [x] Listar las empresas y mostrar su nombre y cargo
-* [ ] Crear un formulario que permita crear una nueva empresa
-* [ ] Crear un formulario que permita actualizar una empresa
-* [ ] Crear un formulario que permita eliminar una empresa
+* [x] Crear un formulario que permita crear una nueva empresa
+* [x] Crear un formulario que permita actualizar una empresa
+* [x] Crear un formulario que permita eliminar una empresa
 
 ## Recommended IDE Setup
 
