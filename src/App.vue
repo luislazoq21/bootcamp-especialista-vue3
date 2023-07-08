@@ -1,5 +1,5 @@
 <script setup>
-    import { ref } from 'vue'
+    import { computed, ref } from 'vue'
     import empresas from './empresas.json'
 
     const enterprises = ref( empresas )
@@ -10,6 +10,9 @@
     })
     const showModal = ref( false )
     const enterpriseToDelete = ref( null )
+    const txtName = ref()
+
+    const title = computed( () => formData.value.id ? 'Editando...' : 'Nueva empresa' )
 
     const onSubmit = () => {
         const { id, name, owner } = formData.value
@@ -49,6 +52,16 @@
         enterprises.value = enterprises.value.filter( e => e.id !== id )
         showModal.value = false
     }
+
+    const onNewCompany = () => {
+        formData.value = ref({
+            id: null,
+            name: '',
+            owner: ''
+        })
+
+        txtName.value.focus()
+    }
 </script>
 
 <template>
@@ -59,7 +72,7 @@
             </ul>
             <ul>
                 <li>
-                    <button role="button">Nueva empresa</button>
+                    <button role="button" @click="onNewCompany">Nueva empresa</button>
                 </li>
             </ul>
         </nav>
@@ -76,6 +89,9 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr v-if="enterprises.length <= 0">
+                            <td colspan="4">No hay registros</td>
+                        </tr>
                         <tr v-for="(enterprise, index) in enterprises" :key="enterprise.id" :data-id="enterprise.id">
                             <td>{{ index + 1 }}</td>
                             <td>{{ enterprise.name }}</td>
@@ -95,6 +111,9 @@
                 </table>
             </div>
             <div>
+                <h2>
+                    {{ title }}
+                </h2>
                 <form @submit.prevent="onSubmit">
                     <label>
                         Nombre empresa
@@ -103,6 +122,7 @@
                             placeholder="Ex. Mi empresa"
                             required
                             v-model="formData.name"
+                            ref="txtName"
                         />
                     </label>
                     <label>
