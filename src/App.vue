@@ -11,6 +11,7 @@
     const showModal = ref( false )
     const enterpriseToDelete = ref( null )
     const txtName = ref()
+    const searchTerm = ref()
 
     const title = computed( () => formData.value.id ? 'Editando...' : 'Nueva empresa' )
 
@@ -62,6 +63,13 @@
 
         txtName.value.focus()
     }
+
+    const filteredEnterprises = computed ( () => {
+
+
+        return enterprises.value.filter( e => e.name.includes( searchTerm ))
+    })
+
 </script>
 
 <template>
@@ -76,6 +84,13 @@
                 </li>
             </ul>
         </nav>
+
+        <input type="text" placeholder="Buscar empresa" v-model="searchTerm">
+        <p>{{ searchTerm }}</p>
+
+        <div>
+            {{ filteredEnterprises }}
+        </div>
 
         <div class="grid">
             <div>
